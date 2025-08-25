@@ -1,0 +1,90 @@
+
+/*.weatherpic {
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+  }*/
+
+  .weather {
+    display: flex; /* Flexbox 레이아웃 적용 */
+    align-items: center; /* 가로축(수평) 가운데 정렬 */
+    justify-content: center; /* 세로축(수직) 가운데 정렬 */
+    padding-top: 1rem;
+    gap:50px;
+
+  }
+  
+  .weatherinfo {
+    text-align: center;
+  }
+  
+  .weatherpic {
+    width: 200px; /* 원하는 크기로 조절 (예: 150px) */
+    height: auto; /* 이미지 비율 유지 */
+  }
+
+/*.weather {
+  display :flex;
+  gap: 1rem;
+  height: 100%;
+  padding-top: 1rem;
+}
+
+.weatherinfo {
+  flex-grow:1;
+  margin-left: 50px;
+  margin-top: 30px;
+}*/
+
+.nowweather {
+  position: sticky; /* Use sticky positioning to keep it at the top during scroll */
+  top: 40px;
+  z-index: 10; /* Ensure it stays on top of the scrolling content */
+  padding: 1rem 0; /* Add some vertical padding */
+  margin: 0; /* Reset default margin */
+  text-align: center; /* Center the text if desired */
+ }
+
+.temp {
+  font-size: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+ }
+
+
+ 
+  .forecast {
+    display: flex;
+    overflow-x: auto; /* 가로 스크롤 활성화 */
+    padding-bottom: 1rem;
+    border-top: 1px solid #eee;
+  
+    /* 👇 이 부분을 수정/추가하세요 */
+    max-width: 500px;     /* 컨테이너의 최대 너비를 약 3개 아이템 크기로 제한 */
+    margin: 1rem auto 0;  /* 위쪽 여백 및 컨테이너 가운데 정렬 */
+  }
+  
+  .forecast-item {
+    /* 👇 너비를 min-width 대신 고정 값으로 변경 */
+    flex: 0 0 90px; /* 아이템 너비를 90px로 고정 (줄어들거나 늘어나지 않음) */
+    text-align: center;
+    padding: 0.5rem;
+    border-right: 1px solid #eee;
+  }
+
+/* 마지막 아이템의 오른쪽 구분선 제거 */
+.forecast-item:last-child {
+  border-right: none;
+}
+
+/* 스크롤바 스타일링 (선택 사항) */
+.forecast::-webkit-scrollbar {
+  height: 8px;
+}
+.forecast::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+.forecast::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}

@@ -1,0 +1,378 @@
+.traffic-page-container {
+    display: flex;
+    flex-direction: columns;
+    height: 100vh;
+    background: linear-gradient(135deg, #635fad, #8c7bcb);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 지도 영역 */
+.map-placeholder {
+    flex: 1;
+    margin: 1rem;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    height: 85vh;
+    margin-top: 6rem;
+}
+
+/* 지도 div */
+#mapDiv {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+}
+
+/* 사이드바 */
+.sidebar {
+    width: 24rem;
+    background-color: #f3f4f6;
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #1e1e2f;
+    overflow-y: auto;
+    margin-top: 6rem;
+}
+
+/* 제목 스타일 */
+.sidebar h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333366;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.2rem;
+}
+
+/* 범례 */
+.legend-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.legend-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #4b4b7c;
+}
+
+.color-box {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 4px;
+    margin-right: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.red-box {
+    background-color: #d61125;
+}
+
+.orange-box {
+    background-color: #e87506;
+}
+
+.yellow-box {
+    background-color: #ffff00;
+}
+
+.green-box {
+    background-color: #61ab25;
+}
+
+/* 알림 박스 */
+.alert-box-red,
+.alert-box-yellow {
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.alert-box-red {
+    background-color: #fee2e2;
+    border-left: 5px solid #ef4444;
+    color: #b91c1c;
+}
+
+.alert-box-yellow {
+    background-color: #fff7ed;
+    border-left: 5px solid #f59e0b;
+    color: #92400e;
+}
+
+/* 스크롤바 스타일 (사이드바 내부) */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 150, 0.5);
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 지도 위 버튼 예시 */
+.top-right-buttons {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.8rem;
+    z-index: 10;
+}
+
+.top-right-button {
+    background: linear-gradient(135deg, #817fc1, #564fa3);
+    border: none;
+    border-radius: 20px;
+    color: #e3e3ff;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(86, 79, 163, 0.6);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.top-right-button:hover {
+    background: linear-gradient(135deg, #564fa3, #817fc1);
+    transform: scale(1.05);
+}
+
+/* Header Styles */
+.traffic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.back-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.page-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 인기 게시물 스타일 */
+.popular-posts-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.popular-post-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    border-left: 4px solid #ff6b6b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.popular-post-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-rank {
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    min-width: 25px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.post-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-title-small {
+    color: #1a1a2e;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: none;
+}
+
+.post-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.post-category {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+.post-likes {
+    color: rgba(75, 75, 120, 0.8);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.post-location {
+    color: rgba(75, 75, 120, 0.7);
+    font-size: 0.75rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.no-popular-posts-msg {
+    color: rgba(75, 75, 120, 0.7);
+    font-style: italic;
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px dashed rgba(75, 75, 120, 0.3);
+}
+
+/* 위치 정보 스타일 */
+.location-info {
+    margin-bottom: 1rem;
+}
+
+.location-status {
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.location-status.loading {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #6366f1;
+}
+
+.location-status.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+.location-status.success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #22c55e;
+}
+
+.location-status p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.error-detail {
+    font-size: 0.8rem !important;
+    opacity: 0.8;
+    font-weight: 400 !important;
+}
+
+.coordinates {
+    font-family: monospace;
+    font-size: 0.8rem !important;
+    opacity: 0.8;
+    font-weight: 400 !important;
+}
+
+.refresh-location-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.refresh-location-btn:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+}
+
+.refresh-location-btn:active {
+    transform: translateY(0);
+}
